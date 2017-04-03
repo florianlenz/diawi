@@ -1,0 +1,28 @@
+{
+    "name": "flole/diawi-php-sdk",
+    "type": "library",
+    "require": {
+        "php": "7.*",
+        "ext-curl": "*"
+    },
+    "authors": [
+        {
+            "name": "Florian Lenz",
+            "email": "florian@florianlenz.eu"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "^6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "ApiCall\\": "src/ApiCall",
+            "ApiCallFactory\\": "src/ApiCallFactory",
+            "Exception\\": "src/Exception",
+            "Option\\": "src/Option",
+            "ParameterValidator\\": "src/ParameterValidator",
+            "ResponseTransformer\\": "src/ResponseTransformer",
+            "DiawiApi\\" : "src"
+        }
+    }
+}
