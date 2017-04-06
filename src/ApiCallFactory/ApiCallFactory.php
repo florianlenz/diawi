@@ -61,7 +61,11 @@ class ApiCallFactory implements ApiCallFactoryInterface
         /** @var OptionInterface $fileTypeOption */
         foreach ($fileTypeOptions as $fileTypeOption){
             $optionKey = $fileTypeOption->getOptionKey();
-        
+
+            if(false === array_key_exists($optionKey, $this->requestParameter)){
+                continue;
+            }
+
             $this->requestParameter[$optionKey] = new \CURLFile($this->requestParameter[$optionKey]);
         }
 
@@ -77,6 +81,10 @@ class ApiCallFactory implements ApiCallFactoryInterface
         /** @var OptionInterface $boolTypeOption */
         foreach ($boolTypeOptions as $boolTypeOption){
             $optionKey = $boolTypeOption->getOptionKey();
+
+            if(false === array_key_exists($optionKey, $this->requestParameter)){
+                continue;
+            }
 
             $this->requestParameter[$optionKey] = (int) $this->requestParameter[$optionKey];
         }
