@@ -51,7 +51,7 @@ class ApiCallFactoryTest extends TestCase
 
         $transformedParameters = $apiCallFactory->transformRequestParameters();
 
-        $this->assertEquals($transformedParameters['build_file'], '@'.realpath(__DIR__).'/testFile1.ipa');
+        $this->assertInstanceOf(\CURLFile::class, $transformedParameters['build_file']);
     }
 
     public function testGetApiCall()
