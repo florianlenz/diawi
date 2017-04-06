@@ -61,8 +61,8 @@ class ApiCallFactory implements ApiCallFactoryInterface
         /** @var OptionInterface $fileTypeOption */
         foreach ($fileTypeOptions as $fileTypeOption){
             $optionKey = $fileTypeOption->getOptionKey();
-
-            $this->requestParameter[$optionKey] = '@' . realpath($this->requestParameter[$optionKey]);
+        
+            $this->requestParameter[$optionKey] = new \CURLFile($this->requestParameter[$optionKey]);
         }
 
         //Filter bool options
